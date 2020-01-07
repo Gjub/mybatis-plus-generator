@@ -17,13 +17,13 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * @author wuchengxing
+ * @author Gjub
  * @version 1.0
  * @date 2019/12/25 10:32
  */
 public class Generator {
 
-   /* public static String scanner(String tip) {
+    public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
         StringBuilder help = new StringBuilder();
         help.append("请输入" + tip + "：");
@@ -35,7 +35,7 @@ public class Generator {
             }
         }
         throw new MybatisPlusException("请输入正确的" + tip + "！");
-    }*/
+    }
 
     public static void main(String[] args) {
         // 代码生成器
@@ -46,7 +46,7 @@ public class Generator {
         String projectPath = System.getProperty("user.dir");
         projectPath = projectPath + "\\generator";
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("wcx");
+        gc.setAuthor("Gjub");
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
@@ -57,12 +57,12 @@ public class Generator {
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("crud_interface");
+        pc.setModuleName(scanner("模块名"));
         pc.setParent("com.example");
         mpg.setPackageInfo(pc);
 
@@ -126,7 +126,7 @@ public class Generator {
         // strategy.setSuperControllerClass("com.example.common.BaseController");
         // 写于父类中的公共字段
         // strategy.setSuperEntityColumns("id");
-        strategy.setInclude("employee"); // scanner("表名，多个英文逗号分割").split(",")
+        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
