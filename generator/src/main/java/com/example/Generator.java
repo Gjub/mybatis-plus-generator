@@ -48,12 +48,12 @@ public class Generator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("Gjub");
         gc.setOpen(false);
-        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/mp?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/db_jxwxkj_02?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
@@ -92,7 +92,7 @@ public class Generator {
             }
         });
 
-        /*cfg.setFileCreate(new IFileCreate() {
+      /*  cfg.setFileCreate(new IFileCreate() {
             @Override
             public boolean isCreate(ConfigBuilder configBuilder, FileType fileType, String filePath) {
                 // 判断自定义文件夹是否需要创建
@@ -106,13 +106,13 @@ public class Generator {
 
         // 配置模板
         TemplateConfig templateConfig = new TemplateConfig();
-
-        // 配置自定义输出模板
-        //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
-        // templateConfig.setEntity("templates/entity2.java");
-        // templateConfig.setService();
-        // templateConfig.setController();
-
+/**
+ *  配置自定义输出模板
+ *         指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
+ *         templateConfig.setEntity("templates/entity2.java");
+ *         templateConfig.setService();
+ *         templateConfig.setController();
+ */
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
         // 策略配置
