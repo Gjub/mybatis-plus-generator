@@ -44,7 +44,7 @@ public class Generator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        projectPath = projectPath + "\\generator";
+        //projectPath = projectPath + "\\generator";
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("Gjub");
         gc.setOpen(false);
